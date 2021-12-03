@@ -22,9 +22,9 @@ _start:
 	mov rsi, buffer_size ; amount of bytes to read (buffer size)
 	call read_word
 	
-	mov rdi, rax  ; find the word in rax
-	mov rsi, last
-	call find_word
+	mov rdi, rax  ; the word we are looking for in the dictionary
+	mov rsi, last ; pointer to the first word in dictionary
+	call find_word 
 
 	test rax, rax ; if zero -> not found
 	jz .not_found
@@ -36,7 +36,7 @@ _start:
 		pop rax ; restore pointer
 		mov rdi, rax ; print the key
 		call print_string
-		call exit ; exit
+		call exit ; exit with code 0
 
 	.not_found:
 		mov rdi, error ; print error message
