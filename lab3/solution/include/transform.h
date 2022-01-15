@@ -3,6 +3,6 @@
 
 #include "image.h"
 
-struct image rotate(struct image const img);
+struct image rotate(struct image img);
 
 #endif //LAB3_TRANSFORM_H
